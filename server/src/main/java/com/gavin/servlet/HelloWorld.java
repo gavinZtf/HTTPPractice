@@ -45,6 +45,12 @@ public class HelloWorld extends HttpServlet {
 		String now = spdf.format(new Date());
 		
 		logger.info(now + "======>" + srcStmCode);
+		logger.info(now + "======>" + srcStmCode);
+		logger.info(now + "======>" + srcStmCode);
+		logger.info(now + "======>" + srcStmCode);
+		logger.info(now + "======>" + srcStmCode);
+		logger.info(now + "======>" + srcStmCode);
+		logger.info(now + "======>" + srcStmCode);
 		//JSON对象
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.accumulate("password", "123").accumulate("name", "www");

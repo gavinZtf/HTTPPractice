@@ -26,6 +26,7 @@ public class CharacterEncodingFilter implements Filter {
 	 * @功能 
 	 * @作者 Gavin
 	 */
+	@Override
 	public void destroy() {
 	}
 
@@ -33,6 +34,7 @@ public class CharacterEncodingFilter implements Filter {
 	 * @功能 
 	 * @作者 Gavin
 	 */
+	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;  
         HttpServletResponse response = (HttpServletResponse) resp;  
@@ -48,6 +50,7 @@ public class CharacterEncodingFilter implements Filter {
 	 * @功能 
 	 * @作者 Gavin
 	 */
+	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		String encoding = filterConfig.getInitParameter("encode");  
         if (encoding != null) {  
