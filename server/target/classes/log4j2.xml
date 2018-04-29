@@ -3,31 +3,25 @@
 
 	<Appenders>
 		<Console name="stdout" target="SYSTEM_OUT">
-			<PatternLayout pattern="%m%n"/>
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
 		</Console>
 		
-		<RollingFile name="rollingFile" fileName="logs/app.log" filePattern="logs/$${date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}-%i.log.gz">
-			<PatternLayout pattern="%m%n"/>
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-			</Policies>
-			<DefaultRolloverStrategy max="20"/>
-		</RollingFile>
-        
-		<RollingFile name="dateFile" fileName="logs/ofbiz2.log" filePattern="logs/ofbiz2-%d{yyyy-MM-dd-HH-mm}.log">  
-			<PatternLayout pattern="%m%n"/>  
-			<Policies>  
-				<TimeBasedTriggeringPolicy interval="1" modulate="true" />  
+		<RollingFile name="rollingFile" fileName="logs/app.log" filePattern="logs/$${date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}.log">  
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>  
+    		<Policies>  
+				<TimeBasedTriggeringPolicy modulate="true" interval="24" maxRandomDelay="0"/>  
 			</Policies>  
-			<DefaultRolloverStrategy max="20"/>
-    	</RollingFile> 
+		</RollingFile>
+		
+		<Async name="Async">
+			<AppenderRef ref="stdout"/>
+			<AppenderRef ref="rollingFile"/>
+		</Async> 
 	</Appenders>
 	
 	<Loggers>
 		<Root level="all">
-			<!-- <AppenderRef ref="stdout"/> -->
-			<AppenderRef ref="rollingFile"/>
-			<!-- <AppenderRef ref="dateFile"/> -->
+			<AppenderRef ref="Async"/>
 		</Root>
 	</Loggers>
 </Configuration>
