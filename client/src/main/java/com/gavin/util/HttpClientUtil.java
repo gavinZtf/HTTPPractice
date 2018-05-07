@@ -27,10 +27,16 @@ import org.apache.http.util.EntityUtils;
  * @时间 2018年4月25日
  */
 public class HttpClientUtil {
+    
+    /**
+     * 
+     */
+    public static final String str = "123";
 
 	/**
 	 * @功能 HttpClient的请求get
 	 * @作者 Gavin
+	 * @param 
 	 */
 	public static String doGet(String url, String charSet) throws Exception{
 		// 生成httpClient对象，并设置请求的参数
@@ -116,18 +122,14 @@ public class HttpClientUtil {
 	public static void main(String[] args) {
 		String url = "http://localhost:8080/server/HelloWorld";
 		JSONObject params = new JSONObject();
-		params.put("SRC_STM_CODE", "wsf");
-		params.put("TENANT_ID", "123");
-		params.put("NM", "张三");
-		params.put("BRTH_DT", "1983-01-20");
-		params.put("GND_CODE", "1");
+		params.put("groupOp", "wsf");
 		JSONArray params2 = new JSONArray();
 		JSONObject param3 = new JSONObject();
-		param3.put("DOC_TP_CODE", "10100");
-		param3.put("DOC_NBR", "100200198301202210");
-		param3.put("DOC_CUST_NM", "test");
+		param3.put("field", "10100");
+		param3.put("op", "100200198301202210");
+		param3.put("data", "test");
 		params2.add(param3);
-		params.put("DOCS", params2);
+		params.put("rules", params2);
 		String ret = doPost(url, params).toString();
 		System.out.println(ret);
 	}

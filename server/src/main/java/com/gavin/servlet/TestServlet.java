@@ -12,7 +12,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Servlet implementation class TestServlet
+ * @author Gavin
+ * @date 2018年4月28日
  */
 @WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {
@@ -21,9 +22,6 @@ public class TestServlet extends HttpServlet {
 	
 	private static Logger logger = LogManager.getLogger(TestServlet.class);
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public TestServlet() {
         super();
     }
@@ -36,7 +34,7 @@ public class TestServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
